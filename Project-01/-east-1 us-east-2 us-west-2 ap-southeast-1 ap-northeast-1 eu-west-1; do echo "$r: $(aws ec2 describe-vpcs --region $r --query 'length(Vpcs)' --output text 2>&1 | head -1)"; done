@@ -1,0 +1,19 @@
+------------------------------------------------------------------------------------
+|                                   DescribeVpcs                                   |
++------------------------+----------------+--------+-------------------------------+
+|  [1m[34mvpc-02c0842f98e27f4e6[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mNone[0m                         |
+|  [1m[34mvpc-0f7e777c109ac7bad[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mterraform-web-vpc[0m            |
+|  [1m[34mvpc-0a608a362c8eb2d07[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34momm-terraform-webserver-vpc[0m  |
+|  [1m[34mvpc-0875fb4be2d4ce6c1[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mproject-1-vpc[0m                |
+|  [1m[34mvpc-03056c49513a18e80[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mproject-1-ec2-webserver-vpc[0m  |
+|  [1m[34mvpc-07f2b914cf7470247[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mMyVPC[0m                        |
+|  [1m[34mvpc-0d916d423499c818e[0m |  [1m[34m10.0.0.0/24[0m   |  [1m[34mFalse[0m |  [1m[34mJava_FDE_Stream_VPC[0m          |
+|  [1m[34mvpc-02112a7072de96785[0m |  [1m[34m10.20.0.0/16[0m  |  [1m[34mFalse[0m |  [1m[34mterraform-webserver-vpc[0m      |
+|  [1m[34mvpc-0cc1eda86a62e9b86[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mterraform-vpc[0m                |
+|  [1m[34mvpc-03389c41f719f68ac[0m |  [1m[34m172.31.0.0/16[0m |  [1m[34mTrue[0m  |  [1m[34m"MB-terraform-vpc"[0m           |
+|  [1m[34mvpc-0143318e8ca4e7334[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mproject1-vpc[0m                 |
+|  [1m[34mvpc-0f6190dec5851f823[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mlinux-web-server-vpc[0m         |
+|  [1m[34mvpc-04cceb7bf4db0d5b4[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mproj1-vpc[0m                    |
+|  [1m[34mvpc-07a6dd1480e2a167a[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mterraform-web-vpc[0m            |
+|  [1m[34mvpc-0e1d587ec757ea721[0m |  [1m[34m10.0.0.0/16[0m   |  [1m[34mFalse[0m |  [1m[34mTerraform-Web-VPC[0m            |
++------------------------+----------------+--------+-------------------------------+
