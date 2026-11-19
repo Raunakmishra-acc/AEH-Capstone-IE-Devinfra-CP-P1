@@ -1,0 +1,66 @@
+# Project 02 – Static Website on Amazon S3 with Terraform
+
+Hosts a static website on Amazon S3. Every resource is created with Terraform: the bucket, website hosting, public-read policy and the HTML files.
+
+## Architecture
+```
+Lab VM (terraform apply) ──creates──► S3 bucket (us-east-2)
+                                       ├─ Website hosting (index.html / error.html)
+                                       ├─ Block Public Access: off (bucket level)
+                                       ├─ Bucket policy: Allow s3:GetObject to *
+                                       └─ Objects: index.html, error.html
+Browser ──HTTP GET──► S3 website endpoint
+```
+
+## Files
+| File | Purpose |
+|------|---------|
+| `providers.tf` | AWS (~> 5.0) and random (~> 3.0) providers, region from variable |
+| `variables.tf` | `region` (us-east-2), `bucket_prefix` |
+| `main.tf` | Bucket, website config, public access block, bucket policy, HTML uploads |
+| `outputs.tf` | `bucket_name`, `website_url` |
+| `website/index.html` | Home page |
+| `website/error.html` | Custom 404 page |
+
+## Resources created
+- `random_id` – unique suffix, because bucket names are global
+- `aws_s3_bucket` – the bucket (`force_destroy = true` for easy cleanup)
+- `aws_s3_bucket_website_configuration` – index and error documents
+- `aws_s3_bucket_public_access_block` – allows a public policy on this bucket
+- `aws_s3_bucket_policy` – public read-only (`s3:GetObject`) on all objects
+- `aws_s3_object` x2 – uploads HTML with `content_type = text/html`
+
+## How to deploy
+```bash
+cd Project-02
+terraform init
+terraform plan
+terraform apply -auto-approve
+terraform output -raw website_url
+```
+
+## Testing
+```bash
+curl $(terraform output -raw website_url)          # returns index.html
+curl -i $(terraform output -raw website_url)/abc   # returns 404 + error.html
+```
+
+## Output
+**Website URL:** http://raunak-capstone-p2-e26d0ed0.s3-website.us-east-2.amazonaws.com
+
+![Website](Screenshot%202026-11-20%20011215.png)
+
+## Issues faced
+| Issue | Fix |
+|-------|-----|
+| URL opened as a Google search | Copied with quotes; used `terraform output -raw` |
+| `git push` rejected (fetch first) | `git pull --rebase origin main`, then push |
+
+## Notes
+- S3 website endpoints are **HTTP only**. That's why the browser shows "Not Secure". HTTPS needs CloudFront + ACM.
+- The policy allows read only: no list, upload or delete.
+
+## Cleanup
+```bash
+terraform destroy -auto-approve
+```
