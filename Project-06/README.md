@@ -14,3 +14,10 @@ Track Terraform updates using Git.
 - providers.tf: AWS (~> 5.0) and random providers
 - main.tf: S3 bucket + versioning
 - outputs.tf: bucket name
+## Pull Request
+https://github.com/Raunakmishra-acc/AEH-Capstone-IE-Devinfra-CP-P1/pull/1
+
+## Result
+After merge, `terraform apply` from main: 1 added, 1 changed, 0 destroyed.
+`aws s3api get-bucket-versioning` returns "Status": "Enabled".
+
