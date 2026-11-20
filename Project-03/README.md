@@ -13,3 +13,8 @@ aws cloudwatch describe-alarms --region ap-south-1 --alarm-name-prefix p3 --quer
 
 ## Cleanup
 terraform destroy
+
+## Screenshot
+CloudWatch alarm in ALARM state (CPU > 70%):
+
+![CloudWatch alarm](Screenshot%202026-11-20%20115612.png)
