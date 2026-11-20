@@ -17,6 +17,11 @@ jobs:
       - name: Terraform fmt check
         run: terraform fmt -check -recursive
 
+      - name: Create dummy SSH key for validation
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keygen -t rsa -b 2048 -f ~/.ssh/p3_key -N "" -q
+
       - name: Terraform validate
         run: |
           for dir in $(find . -name "*.tf" -not -path "*/.terraform/*" -exec dirname {} \; | sort -u); do
