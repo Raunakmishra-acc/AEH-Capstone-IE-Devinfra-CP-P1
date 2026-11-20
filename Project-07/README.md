@@ -17,3 +17,5 @@ GitHub Actions workflow `.github/workflows/terraform-ci.yml` runs on every push 
 
 ## Note
 Pushing workflow files requires the token to have the `workflow` scope.
+## screenshots
+I have attached screenshots showing the pipeline run, the run history and the workflow badge.
