@@ -29,5 +29,7 @@ nothing. alice and bob get access through their devteam membership, while guest 
 to give or remove access, add or remove the user from devteam (`usermod -aG` / `gpasswd -d`).
 This follows the principle of least privilege.
 
+##screenshot
+https://github.com/Raunakmishra-acc/AEH-Capstone-IE-Devinfra-CP-P1/blob/main/Project-05/Screenshot%202026-11-20%20172143.png
 Possible improvement: `chmod 2770` (setgid) so new files inherit the devteam group,
 letting team members edit each other's files.
