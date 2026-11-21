@@ -1,0 +1,40 @@
+name: P12 Terraform Plan
+
+on:
+  push:
+    paths:
+      - "Project-12/**"
+      - ".github/workflows/p12-plan.yml"
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Project-12
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_wrapper: false
+
+      - name: Init
+        run: terraform init
+
+      - name: Validate
+        run: terraform validate
+
+      - name: Plan
+        run: terraform plan -out=tfplan
+
+      - name: Plan to text
+        run: terraform show -no-color tfplan > plan.txt
+
+      - name: Upload plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: |
+            Project-12/tfplan
+            Project-12/plan.txt
