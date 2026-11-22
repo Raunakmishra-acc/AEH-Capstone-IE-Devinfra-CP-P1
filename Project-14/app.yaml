@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: p14-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: p14-app
+  template:
+    metadata:
+      labels:
+        app: p14-app
+    spec:
+      containers:
+      - name: p14-app
+        image: 590507089733.dkr.ecr.ap-south-1.amazonaws.com/raunak-p13-app:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: p14-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: p14-app
+  ports:
+  - port: 80
+    targetPort: 8080
+
