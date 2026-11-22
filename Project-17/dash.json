@@ -1,0 +1,17 @@
+{
+  "widgets": [
+    {
+      "type": "log",
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 10,
+      "properties": {
+        "region": "ap-south-1",
+        "title": "P17 Apache access logs",
+        "query": "SOURCE '/raunak-p17/apache-access' | fields @timestamp, @message | sort @timestamp desc | limit 50",
+        "view": "table"
+      }
+    }
+  ]
+}
