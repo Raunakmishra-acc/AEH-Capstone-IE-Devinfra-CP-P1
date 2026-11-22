@@ -1,0 +1,26 @@
+name: P18 GitOps Apply
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Project-18/**"
+
+jobs:
+  apply:
+    runs-on: self-hosted
+    environment: production
+    defaults:
+      run:
+        working-directory: Project-18
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Terraform init
+        run: terraform init -input=false
+
+      - name: Terraform plan
+        run: terraform plan -input=false
+
+      - name: Terraform apply
+        run: terraform apply -auto-approve -input=false
