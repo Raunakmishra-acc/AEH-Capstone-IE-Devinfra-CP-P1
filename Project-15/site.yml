@@ -1,0 +1,19 @@
+- name: setup web server
+  hosts: web
+  tasks:
+    - name: install iis
+      ansible.windows.win_feature:
+        name: Web-Server
+        state: present
+        include_management_tools: true
+
+    - name: add home page
+      ansible.windows.win_copy:
+        content: "<h1>Project 15 - IIS installed by Ansible</h1>"
+        dest: 'C:\inetpub\wwwroot\index.html'
+
+    - name: start iis
+      ansible.windows.win_service:
+        name: W3SVC
+        state: started
+        start_mode: auto
